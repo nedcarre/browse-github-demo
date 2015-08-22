@@ -1,0 +1,11 @@
+@media only screen
+and (min-device-width: 321px) {
+  input.borderless,
+  button#stateUSdropdown {
+      font-size: 1.25em;
+  }
+  .buttonsBarMinusEdit {
+    font-size: 1.25em;
+  }
+
+}

@@ -1,0 +1,45 @@
+{
+  "name": "git-repo-list",
+  "version": "1.0.1",
+  "description": "List publicly available Github repos",
+  "summary": "Master-detail pattern to list and view details of Github public repositories",
+  "author": "ncarre",
+  "group": "team",
+  "contributors": [],
+  "license": "MIT",
+  "vendor": "self",
+  "scripts": {
+    "start": "npm run serve | npm run dev",
+    "serve": "./node_modules/.bin/http-server -p 8080",
+    "dev": "BUILD_DEV=1 webpack-dev-server --progress --colors --port 8090"
+  },
+  "dependencies": {
+    "react": "^0.13.1"
+  },
+  "devDependencies": {
+    "compass-mixins": "^0.12.7",
+    "css-loader": "^0.12.0",
+    "file-loader": "^0.8.1",
+    "http-server": "^0.8.0",
+    "jsx-loader": "^0.13.2",
+    "node-sass": "^3.2.0",
+    "path": "^0.11.14",
+    "react-bootstrap": "^0.21.1",
+    "react-router": "^0.13.3",
+    "sass-loader": "^2.0.1",
+    "style-loader": "^0.12.1",
+    "superagent": "^1.2.0",
+    "susy": "^2.2.5",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.8.11",
+    "webpack-dev-server": "^1.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=0.12.2",
+    "npm": ">=2.7.4"
+  }
+}
