@@ -48,7 +48,10 @@ module.exports = React.createClass({
     var prettified = JSON.stringify(this.state.detail, undefined, 2);
 
     return <div>
+        <h2>{this.props.params.owner + '/' + this.props.params.name} </h2>
         <pre>
+          Details:
+          <br/>
           {prettified}
         </pre>
       </div>

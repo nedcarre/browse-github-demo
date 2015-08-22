@@ -26,6 +26,7 @@
   @include clearfix;
   padding-bottom: 1rem;
   article {
+    padding: 1em 0;
     border-bottom: 1px solid gray;
     &:last-child {
       border: none;
