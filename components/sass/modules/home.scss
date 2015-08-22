@@ -26,6 +26,13 @@
   @include clearfix;
   padding-bottom: 1rem;
   background: rgba(113, 218, 210, 0.8);
+  article {
+    border-bottom: 1px solid gray;
+    &:last-child {
+      border: none;
+      padding-bottom: 50px;
+    }
+  }
 }
 
 .useThisBtn {

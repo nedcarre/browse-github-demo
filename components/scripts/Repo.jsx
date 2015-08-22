@@ -23,7 +23,7 @@ module.exports = React.createClass({
               <div className='leftAlign'>
                 <div>
                   <div>
-                    <label>{this.props.repo.full_name}</label>
+                    <label>Full name: {this.props.repo.full_name}</label>
                     <button className='useThisBtn' bsSize='xsmall'>
                       <Link to="/detail/repo/:name/owner/:owner" params={{name:this.props.repo.name, owner:this.props.repo.owner.login}}>Show Details</Link>
                     </button>
@@ -32,7 +32,9 @@ module.exports = React.createClass({
               </div>
               <div className='leftAlign'>
                 <div>
-                  <div>{this.props.repo.description}</div>
+                  <div>
+                    <label>Description: {this.props.repo.description}</label>
+                  </div>
                 </div>
               </div>
             </div>
