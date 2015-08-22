@@ -7,19 +7,22 @@ var Repo = require('./Repo');
 var site = require('./config');
 
 module.exports = React.createClass({
-    contextTypes: {
-      router: React.PropTypes.func
-    },
     getInitialState: function() {
       return {
         reposInPage : [],
-        offset: 0
+        lastSeenQueue: []
       };
     },
     componentDidMount: function() {
-      var targetUrl = site.github.url + site.github.getRepos;
+      this.fetchRepos(this.state.targetUrl);
+    },
+    componentWillUnmount: function() {
+    },
+    fetchRepos: function(lastSeen) {
+      var targetUrl = site.github.url + site.github.getRepos
       Request
         .get(targetUrl)
+        .query({since: lastSeen || 0})
         .type('application/json')
         .accept('application/vnd.github.v3+json')
         .end(function(err, res){
@@ -39,26 +42,31 @@ module.exports = React.createClass({
           }
         }.bind(this));
 
-
-    },
-    componentWillUnmount: function() {
     },
     updateRepos: function(reposFetched) {
-      var nextOffset = this.state.offset + reposFetched.length;
+      var lastItem, lastSeen;
+      lastItem = reposFetched[reposFetched.length-1];
+      if (this.state.lastSeenQueue.length === 0) {
+        this.state.lastSeenQueue.push(lastItem.id);
+      }
+      else {
+        lastSeen = this.state.lastSeenQueue[this.state.lastSeenQueue.length - 1];
+        if (lastItem.id > lastSeen) {
+          this.state.lastSeenQueue.push(lastItem.id);
+        }
+      }
       this.setState({
-        reposInPage: reposFetched,
-        offset: nextOffset
+        reposInPage: reposFetched
       });
     },
 
-    previous: function() {
-
+    previous: function(event) {
+      this.state.lastSeenQueue.pop();
+      this.state.lastSeenQueue.pop();
+      this.fetchRepos(this.state.lastSeenQueue[this.state.lastSeenQueue.length - 1]);
     },
     continueNext: function(event) {
-      if(event && event.target.tagName !== 'A') {
-        var routerContext = this.context.router;
-        //routerContext.transitionTo('');
-      }
+      this.fetchRepos(this.state.lastSeenQueue[this.state.lastSeenQueue.length - 1]);
     },
     render: function(){
          return <div>

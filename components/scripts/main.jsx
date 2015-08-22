@@ -15,19 +15,7 @@ var Detail = require('./Detail');
 
 var App = React.createClass({
   getInitialState: function() {
-    return {};
-  },
-  componentWillMount: function() {
-  },
-  componentDidMount: function() {
-    if (__DEV__) {
-      console.log("App did mount");
-    }
-  },
-  componentWillUnmount: function() {
-    if (__DEV__) {
-      console.log("App will unmount");
-    }
+    return null;
   },
   render: function() {
     return (

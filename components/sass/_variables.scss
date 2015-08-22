@@ -2,6 +2,7 @@
 
 //Add Color Palette
 $teal       : #48A7DD;
+$cyan       : rgba(113, 218, 210, 0.8);
 $blue       : #063642;
 $green      : #45B29D;
 $yellow     : #EFC94C;
@@ -13,7 +14,7 @@ $dark       : #000000;
 $semiDark   : #202020;
 $light      : #FFFFFF;
 
-$backgroundColor    : $light;
+$backgroundColor    : $cyan;
 $typeDefault        : $dark;
 $navBackground      : $blue;
 $navForeground      : $light;
